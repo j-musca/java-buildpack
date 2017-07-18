@@ -139,6 +139,7 @@ module JavaBuildpack
         end
 
         def do_merge(hash_v1, hash_v2, should_log)
+          logger.warn { "First config '#{hash_v1}'" }
           hash_v2.each do |key, value|
             if hash_v1.key? key
               hash_v1[key] = do_resolve_value(key, hash_v1[key], value, should_log)
